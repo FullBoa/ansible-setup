@@ -1,0 +1,14 @@
+---
+- name: Add l2tp ppa repository
+  apt_repository:
+    repo: ppa:nm-l2tp/network-manager-l2tp
+    update_cache: yes
+
+- name: Install network-manager-l2tp
+  apt:
+    name: network-manager-l2tp
+    state: latest 
+- name: Install network-manager-l2tp-gnome
+  apt:
+    name: network-manager-l2tp-gnome
+    state: latest

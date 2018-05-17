@@ -1,0 +1,53 @@
+# Setting up work environment on machine
+---
+- hosts: all
+  vars:
+    ansible_become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install terminator terminal
+      apt:
+        name: terminator
+        state: latest
+
+    - name: Make terminator default terminal
+      alternatives:
+        name: x-terminal-emulator
+        path: /usr/bin/terminator
+
+    - name: Install htop
+      apt:
+        name: htop
+        state: latest
+
+    - name: Install powertop
+      apt:
+        name: powertop
+        state: latest
+
+    - name: Install git
+      apt:
+        name: git
+        state: latest
+
+    - include_tasks: chrome-setup.yml
+
+    - include_tasks: vscode-setup.yml
+
+    - include_tasks: l2tp-setup.yml
+
+    - name: Install mc
+      apt:
+        name: mc
+        state: latest
+
+    - name: Remove useless packages from the cache
+      apt:
+        autoclean: yes
+
+    - name: Remove dependencies that are no longer required
+      apt:
+        autoremove: yes
