@@ -39,6 +39,8 @@
 
     - include_tasks: l2tp-setup.yml
 
+    - include_tasks: dotnetcore-setup.yml
+
     - name: Install mc
       apt:
         name: mc
