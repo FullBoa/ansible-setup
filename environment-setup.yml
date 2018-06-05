@@ -44,13 +44,16 @@
     - include_tasks: docker-setup.yml
 
     - name: Install go
-      apt:
-        name: golang-1.9
-        state: latest
+      command: snap install --classic go
 
     - name: Install mc
       apt:
         name: mc
+        state: latest
+
+    - name: Install shutter
+      apt:
+        name: shutter
         state: latest
 
     - name: Remove useless packages from the cache
