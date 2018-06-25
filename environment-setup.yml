@@ -1,6 +1,6 @@
 # Setting up work environment on machine
 ---
-- hosts: all
+- hosts: localhost
   vars:
     ansible_become: yes
   tasks:

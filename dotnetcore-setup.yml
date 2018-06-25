@@ -2,14 +2,17 @@
 - name: Install Microsoft key and register product repository
   apt:
     deb: https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+  tags: dotnet
 
 - name: Install apt-transport-https
   apt:
     name: apt-transport-https
     state: latest
+  tags: dotnet
 
-- name: Install dotnet-sdk-2.1.200
+- name: Install dotnet-sdk-2.1
   apt:
-    name: dotnet-sdk-2.1.200
+    name: dotnet-sdk-2.1
     state: latest
     update_cache: yes
+  tags: dotnet
