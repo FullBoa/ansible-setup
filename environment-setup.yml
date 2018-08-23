@@ -8,53 +8,55 @@
       apt:
         update_cache: yes
 
-    - name: Install terminator terminal
-      apt:
-        name: terminator
-        state: latest
+    # - name: Install terminator terminal
+    #   apt:
+    #     name: terminator
+    #     state: latest
 
-    - name: Make terminator default terminal
-      alternatives:
-        name: x-terminal-emulator
-        path: /usr/bin/terminator
+    # - name: Make terminator default terminal
+    #   alternatives:
+    #     name: x-terminal-emulator
+    #     path: /usr/bin/terminator
 
-    - name: Install htop
-      apt:
-        name: htop
-        state: latest
+    # - name: Install htop
+    #   apt:
+    #     name: htop
+    #     state: latest
 
-    - name: Install powertop
-      apt:
-        name: powertop
-        state: latest
+    # - name: Install powertop
+    #   apt:
+    #     name: powertop
+    #     state: latest
 
-    - name: Install git
-      apt:
-        name: git
-        state: latest
+    # - name: Install git
+    #   apt:
+    #     name: git
+    #     state: latest
 
-    - include_tasks: chrome-setup.yml
+    # - include_tasks: chrome-setup.yml
 
-    - include_tasks: vscode-setup.yml
+    # - include_tasks: vscode-setup.yml
 
-    - include_tasks: l2tp-setup.yml
+    # - include_tasks: l2tp-setup.yml
 
-    - include_tasks: dotnetcore-setup.yml
+    # - include_tasks: dotnetcore-setup.yml
 
-    - include_tasks: docker-setup.yml
+    # - include_tasks: docker-setup.yml
 
-    - name: Install go
-      command: snap install --classic go
+    - include_tasks: typora-setup.yml
 
-    - name: Install mc
-      apt:
-        name: mc
-        state: latest
+    # - name: Install go
+    #   command: snap install --classic go
 
-    - name: Install shutter
-      apt:
-        name: shutter
-        state: latest
+    # - name: Install mc
+    #   apt:
+    #     name: mc
+    #     state: latest
+
+    # - name: Install shutter
+    #   apt:
+    #     name: shutter
+    #     state: latest
 
     - name: Remove useless packages from the cache
       apt:
