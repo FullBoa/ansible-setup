@@ -40,13 +40,18 @@
     - include_tasks: l2tp-setup.yml
 
     - include_tasks: dotnetcore-setup.yml
+      tags: dotnet
 
     - include_tasks: docker-setup.yml
 
     - include_tasks: typora-setup.yml
+      tags:
+        - typora
 
     - name: Install go
       command: snap install --classic go
+      tags:
+        - go
 
     - name: Install mc
       apt:

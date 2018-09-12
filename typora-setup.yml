@@ -4,15 +4,21 @@
     keyserver: keyserver.ubuntu.com
     id: BA300B7755AFCFAE
     state: present
+  tags:
+    - typora
 
 - name: Add Typora repo
   apt_repository:
-    repo: deb [arch=amd64] https://typora.io/linux ./
+    repo: "deb [arch=amd64] https://typora.io/linux ./"
     filename: typora
     state: present
     update_cache: yes
+  tags:
+    - typora
 
 - name: Install Typora
   apt:
     name: typora
     state: latest
+  tags:
+    - typora
