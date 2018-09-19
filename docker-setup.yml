@@ -3,26 +3,38 @@
   apt:
     name: apt-transport-https
     state: latest
+  tags: docker
 
 - name: Install dependencies ca-certificates
   apt:
     name: ca-certificates
     state: latest
+  tags: docker
+  
 
 - name: Install dependencies curl
   apt:
     name: curl
     state: latest
+  tags: docker
+
+- name: Ensure pip installed
+  apt:
+    name: python-pip
+    state: present
+  tags: docker
 
 - name: Install dependencies software-properties-common
   apt:
     name: software-properties-common
     state: latest
+  tags: docker
     
 - name: Add key
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
+  tags: docker
 
 - name: Add Docker repository
   apt_repository:
@@ -30,8 +42,16 @@
     filename: docker
     state: present
     update_cache: yes
+  tags: docker
 
 - name: Install docker
   apt:
     name: docker-ce
     state: latest
+  tags: docker
+
+- name: Install docker-compose
+  pip:
+    name: docker-compose
+    state: latest
+  tags: docker

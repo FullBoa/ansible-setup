@@ -43,10 +43,7 @@
       tags: dotnet
 
     - include_tasks: docker-setup.yml
-
-    - include_tasks: typora-setup.yml
-      tags:
-        - typora
+      tags: docker
 
     - name: Install go
       command: snap install --classic go
